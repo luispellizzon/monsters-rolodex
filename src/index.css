@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Hallo";
+  src: url("../public/font/zombie_holocaust-webfont.woff") format("woff"),
+    url("../public/font/zombie_holocaust-webfont.woff2") format("woff2"),
+    url("CustomFont.svg#filename") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Hallo", sans-serif;
+  letter-spacing: 4px;
+  background-color: #333;
+  color: #eb6123;
+  text-align: center;
+}
