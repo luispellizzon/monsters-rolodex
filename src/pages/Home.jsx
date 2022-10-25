@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ListItem from "../components/ListItem";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "../components/Header";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -26,8 +27,11 @@ function Home() {
     user.name.toLowerCase().startsWith(searchUser.toLowerCase())
   );
 
+  console.log(filterMonsters);
+
   return (
-    <div className="div">
+    <>
+      <Header />
       <input
         type="text"
         value={searchUser}
@@ -35,13 +39,13 @@ function Home() {
         onChange={handleOnChange}
       />
       <section className="container" id="monsters">
-        <div className="flex-items">
-          {filterMonsters.map((user, index) => (
-            <ListItem key={index} user={user} />
+        <div className="flex-container">
+          {filterMonsters.map((user) => (
+            <ListItem key={user.id} user={user} id={user.id} />
           ))}
         </div>
       </section>
-    </div>
+    </>
   );
 }
 
