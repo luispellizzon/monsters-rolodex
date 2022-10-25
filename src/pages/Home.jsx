@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ListItem from "../components/ListItem";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "../components/Header";
+import SearchBox from "../components/SearchBox";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -32,12 +33,8 @@ function Home() {
   return (
     <>
       <Header />
-      <input
-        type="text"
-        value={searchUser}
-        style={{ width: "200px" }}
-        onChange={handleOnChange}
-      />
+      <SearchBox value={searchUser} onChange={handleOnChange} />
+
       <section className="container" id="monsters">
         <div className="flex-container">
           {filterMonsters.map((user) => (
