@@ -34,11 +34,13 @@ function Home() {
         style={{ width: "200px" }}
         onChange={handleOnChange}
       />
-      <h1>
-        {filterMonsters.map((user, index) => (
-          <ListItem key={index} user={user} />
-        ))}
-      </h1>
+      <section className="container" id="monsters">
+        <div className="flex-items">
+          {filterMonsters.map((user, index) => (
+            <ListItem key={index} user={user} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
