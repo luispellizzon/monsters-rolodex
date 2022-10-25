@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Home() {
   const [users, setUsers] = useState([]);
+  const [searchUser, setSearchUser] = useState("");
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -17,10 +18,24 @@ function Home() {
     fetchUsers();
   }, []);
 
+  const handleOnChange = (e) => {
+    setSearchUser(e.target.value);
+  };
+
+  const filterMonsters = users.filter((user) =>
+    user.name.toLowerCase().startsWith(searchUser.toLowerCase())
+  );
+
   return (
     <div className="div">
+      <input
+        type="text"
+        value={searchUser}
+        style={{ width: "200px" }}
+        onChange={handleOnChange}
+      />
       <h1>
-        {users.map((user, index) => (
+        {filterMonsters.map((user, index) => (
           <ListItem key={index} user={user} />
         ))}
       </h1>
