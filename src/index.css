@@ -101,6 +101,7 @@ body {
 
 .btn {
   font-family: inherit;
+  display: inline-block;
   font-size: 1.2rem;
   color: #333;
   margin: 1rem;
@@ -118,6 +119,12 @@ body {
 
 .btn:active {
   transform: scale(0.98);
+}
+
+.btn-left {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
 }
 
 .user-title {

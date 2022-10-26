@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
+import { FaArrowLeft } from "react-icons/fa";
 
 function User() {
   const { userId } = useParams();
@@ -21,29 +23,34 @@ function User() {
   }
 
   return (
-    <section className="user-container">
-      <div className="container">
-        <h2 className="user-title">{user.name}</h2>
-        <div className="flex-stats">
-          <img
-            src={`https://robohash.org/${user.id}?set=set2`}
-            alt="Monster"
-            className="card-image"
-          />
-          <div className="stats-info">
-            <p>
-              Username: <span>{user.username}</span>
-            </p>
-            <p>
-              Email: <span>{user.email}</span>
-            </p>
-            <p>
-              Website Portfolio: <span>{user.website}</span>{" "}
-            </p>
+    <>
+      <section className="user-container">
+        <div className="container">
+          <div className="btn-left">
+            <BackButton />
+          </div>
+          <h2 className="user-title">{user.name}</h2>
+          <div className="flex-stats">
+            <img
+              src={`https://robohash.org/${user.id}?set=set2`}
+              alt="Monster"
+              className="card-image"
+            />
+            <div className="stats-info">
+              <p>
+                Username: <span>{user.username}</span>
+              </p>
+              <p>
+                Email: <span>{user.email}</span>
+              </p>
+              <p>
+                Website Portfolio: <span>{user.website}</span>{" "}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
