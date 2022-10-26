@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     const fetchUsers = async () => {
       const data = await fetch(
-        "https://jsonplaceholder.typicode.com/users?_start=0&_limit=20"
+        "https://jsonplaceholder.typicode.com/users?_start=0&_limit=3"
       );
 
       const response = await data.json();
@@ -23,12 +23,24 @@ function Home() {
   const handleOnChange = (e) => {
     setSearchUser(e.target.value);
   };
+  const handleOnClick = () => {
+    const last = users.length;
+    const pagination = async () => {
+      const data = await fetch(
+        `https://jsonplaceholder.typicode.com/users?_start=${last}&_limit=${3}`
+      );
+
+      const response = await data.json();
+      setUsers((prevState) => [...prevState, ...response]);
+    };
+    pagination();
+  };
+
+  console.log(users);
 
   const filterMonsters = users.filter((user) =>
     user.name.toLowerCase().startsWith(searchUser.toLowerCase())
   );
-
-  console.log(filterMonsters);
 
   return (
     <>
@@ -41,6 +53,9 @@ function Home() {
             <ListItem key={user.id} user={user} id={user.id} />
           ))}
         </div>
+        <button className="btn" onClick={handleOnClick}>
+          Load More
+        </button>
       </section>
     </>
   );

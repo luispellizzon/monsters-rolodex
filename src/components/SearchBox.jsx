@@ -8,6 +8,7 @@ function SearchBox({ value, onChange }) {
         onChange={onChange}
         value={value}
         className="search-box-input"
+        placeholder="Search monster.."
       />
     </div>
   );

@@ -1,6 +1,4 @@
 function ListItem({ id, user }) {
-  console.log(id);
-
   return (
     <div className="card">
       <div className="card-body">

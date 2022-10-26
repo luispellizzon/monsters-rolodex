@@ -14,19 +14,17 @@
 }
 
 body {
-  background: url("../src/assets/cool-background.png") no-repeat;
-  background-size: cover;
-  background-position: center;
   font-family: "Hallo", sans-serif;
   letter-spacing: 4px;
   background-color: #333;
   color: #eb6123;
   text-align: center;
+  min-height: 100vh;
 }
 
 .header {
   font-size: 3rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .search-box {
@@ -49,6 +47,7 @@ body {
 .container {
   max-width: 1100px;
   margin: 0 auto;
+  padding-bottom: 4rem;
 }
 
 #monsters {
@@ -66,10 +65,8 @@ body {
 .card {
   height: 400px;
   width: 300px;
-
   background: rgba(186, 174, 50, 0.22);
   border-radius: 16px;
-
   backdrop-filter: blur(4.8px);
   -webkit-backdrop-filter: blur(4.8px);
   border: 1px solid rgba(186, 174, 50, 0.18);
@@ -96,4 +93,25 @@ body {
 .card-image {
   height: 200px;
   width: 200px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: #333;
+  margin: 1rem;
+  padding: 0.8rem 2rem;
+  background-color: rgb(233, 63, 233);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(186, 46, 186);
+  color: aliceblue;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
