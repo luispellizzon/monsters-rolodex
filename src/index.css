@@ -38,6 +38,8 @@ body {
   width: 250px;
   padding: 1rem;
   outline: none;
+  border: 2px solid transparent;
+  border-radius: 10px;
 }
 .search-box-input:focus {
   border: #eb6123 2px solid;
@@ -59,6 +61,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  padding: 1rem;
 }
 
 .card {
@@ -119,6 +122,42 @@ body {
 
 .btn:active {
   transform: scale(0.98);
+}
+
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 300px;
+  height: 300px;
+  border: 15px solid;
+  border-color: #eb6123 rgb(186, 46, 186);
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  overflow: hidden;
+}
+
+.hallo-face {
+  height: 100%;
+  max-width: 100%;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .user-title {

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import BackButton from "../components/BackButton";
+import Spinner from "../components/Spinner";
 
 function User() {
   const { userId } = useParams();
@@ -19,7 +20,7 @@ function User() {
     fetchUser();
   }, []);
   if (!user) {
-    return <p>Loading</p>;
+    return <Spinner />;
   }
 
   return (

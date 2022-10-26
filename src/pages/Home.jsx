@@ -3,6 +3,7 @@ import ListItem from "../components/ListItem";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "../components/Header";
 import SearchBox from "../components/SearchBox";
+import Spinner from "../components/Spinner";
 
 function Home() {
   const [users, setUsers] = useState(null);
@@ -50,11 +51,8 @@ function Home() {
     pagination();
   };
 
-  // console.log(users);
-  console.log(lastFetched);
-
   if (!users) {
-    return <h3>loading</h3>;
+    return <Spinner />;
   }
 
   const filterMonsters = users.filter((user) =>
