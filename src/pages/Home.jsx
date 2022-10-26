@@ -5,8 +5,9 @@ import Header from "../components/Header";
 import SearchBox from "../components/SearchBox";
 
 function Home() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(null);
   const [searchUser, setSearchUser] = useState("");
+  const [lastFetched, setLastFetched] = useState(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -15,7 +16,13 @@ function Home() {
       );
 
       const response = await data.json();
-      setUsers(response);
+      setLastFetched(response);
+
+      let usersArray = [];
+
+      response.forEach((user) => usersArray.push(user));
+
+      setUsers(usersArray);
     };
     fetchUsers();
   }, []);
@@ -23,18 +30,32 @@ function Home() {
   const handleOnChange = (e) => {
     setSearchUser(e.target.value);
   };
+
   const handleOnClick = () => {
-    const last = users.length;
+    const lastVisibleId = lastFetched[lastFetched.length - 1].id;
     const pagination = async () => {
       const data = await fetch(
-        `https://jsonplaceholder.typicode.com/users?_start=${last}&_limit=${3}`
+        `https://jsonplaceholder.typicode.com/users?_start=${lastVisibleId}&_limit=${3}`
       );
 
       const response = await data.json();
+      setLastFetched(response);
+
+      let usersArray = [];
+
+      response.forEach((user) => usersArray.push(user));
+
       setUsers((prevState) => [...prevState, ...response]);
     };
     pagination();
   };
+
+  // console.log(users);
+  console.log(lastFetched);
+
+  if (!users) {
+    return <h3>loading</h3>;
+  }
 
   const filterMonsters = users.filter((user) =>
     user.name.toLowerCase().startsWith(searchUser.toLowerCase())
@@ -50,9 +71,12 @@ function Home() {
             <ListItem key={user.id} user={user} id={user.id} />
           ))}
         </div>
-        <button className="btn" onClick={handleOnClick}>
-          Load More
-        </button>
+
+        {lastFetched.length > 0 && (
+          <button className="btn" onClick={handleOnClick}>
+            Load More{" "}
+          </button>
+        )}
       </section>
     </>
   );
