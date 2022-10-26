@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Hallo";
-  src: url("./font/zombie_holocaust-webfont.woff") format("woff"),
-    url("./font/zombie_holocaust-webfont.woff2") format("woff2"),
+  src: url("../font/zombie_holocaust-webfont.woff") format("woff"),
+    url("../font/zombie_holocaust-webfont.woff2") format("woff2"),
     url("CustomFont.svg#filename") format("svg");
   font-weight: normal;
   font-style: normal;
