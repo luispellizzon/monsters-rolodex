@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Hallo";
-  src: url("../public/font/zombie_holocaust-webfont.woff") format("woff"),
-    url("../public/font/zombie_holocaust-webfont.woff2") format("woff2"),
+  src: url("./font/zombie_holocaust-webfont.woff") format("woff"),
+    url("./font/zombie_holocaust-webfont.woff2") format("woff2"),
     url("CustomFont.svg#filename") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -121,20 +121,28 @@ body {
   transform: scale(0.98);
 }
 
-.btn-left {
-  display: flex;
-  gap: 0.2rem;
-  align-items: center;
+.heading {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
 }
 
 .user-title {
   font-size: 3rem;
+  justify-self: start;
+}
+
+.btn-left {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-self: start;
 }
 .flex-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .flex-stats img {
@@ -152,6 +160,13 @@ body {
 
 .stats-info p span {
   color: #eb6123;
+}
+
+.leaflet-container {
+  background-color: #eb6123;
+  height: 200px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 @media (max-width: 550px) {

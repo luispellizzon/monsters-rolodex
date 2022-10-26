@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import BackButton from "../components/BackButton";
-import { FaArrowLeft } from "react-icons/fa";
 
 function User() {
   const { userId } = useParams();
@@ -26,10 +26,10 @@ function User() {
     <>
       <section className="user-container">
         <div className="container">
-          <div className="btn-left">
+          <div className="heading">
             <BackButton />
+            <h2 className="user-title">{user.name}</h2>
           </div>
-          <h2 className="user-title">{user.name}</h2>
           <div className="flex-stats">
             <img
               src={`https://robohash.org/${user.id}?set=set2`}
@@ -47,6 +47,22 @@ function User() {
                 Website Portfolio: <span>{user.website}</span>{" "}
               </p>
             </div>
+          </div>
+          <div className="leaflet-container">
+            <MapContainer
+              style={{ height: "100%", width: "100%" }}
+              center={[user.address.geo.lat, user.address.geo.lng]}
+              zoom={13}
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
+              />
+              <Marker position={[user.address.geo.lat, user.address.geo.lng]}>
+                <Popup>{user.address.street}</Popup>
+              </Marker>
+            </MapContainer>
           </div>
         </div>
       </section>
