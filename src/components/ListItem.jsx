@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 function ListItem({ id, user }) {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(`/${id}`);
+  };
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       <div className="card-body">
         <img
           src={`https://robohash.org/${id}?set=set2`}

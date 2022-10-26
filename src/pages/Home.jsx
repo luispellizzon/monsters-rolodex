@@ -36,15 +36,12 @@ function Home() {
     pagination();
   };
 
-  console.log(users);
-
   const filterMonsters = users.filter((user) =>
     user.name.toLowerCase().startsWith(searchUser.toLowerCase())
   );
 
   return (
     <>
-      <Header />
       <SearchBox value={searchUser} onChange={handleOnChange} />
 
       <section className="container" id="monsters">
