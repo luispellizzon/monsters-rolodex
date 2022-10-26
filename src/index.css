@@ -121,11 +121,6 @@ body {
   transform: scale(0.98);
 }
 
-.heading {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-}
-
 .user-title {
   font-size: 3rem;
   justify-self: start;
@@ -136,6 +131,16 @@ body {
   gap: 0.2rem;
   align-items: center;
   justify-self: start;
+}
+
+.btn-arrow {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
 }
 .flex-stats {
   display: grid;
@@ -160,6 +165,12 @@ body {
 
 .stats-info p span {
   color: #eb6123;
+}
+
+.location {
+  font-size: 2rem;
+  color: rgb(186, 46, 186);
+  padding: 1rem;
 }
 
 .leaflet-container {

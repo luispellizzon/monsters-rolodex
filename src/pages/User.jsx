@@ -48,21 +48,24 @@ function User() {
               </p>
             </div>
           </div>
-          <div className="leaflet-container">
-            <MapContainer
-              style={{ height: "100%", width: "100%" }}
-              center={[user.address.geo.lat, user.address.geo.lng]}
-              zoom={13}
-              scrollWheelZoom={false}
-            >
-              <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
-              />
-              <Marker position={[user.address.geo.lat, user.address.geo.lng]}>
-                <Popup>{user.address.street}</Popup>
-              </Marker>
-            </MapContainer>
+          <div className="location-container">
+            <h2 className="location">Location</h2>
+            <div className="leaflet-container">
+              <MapContainer
+                style={{ height: "100%", width: "100%" }}
+                center={[user.address.geo.lat, user.address.geo.lng]}
+                zoom={13}
+                scrollWheelZoom={false}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
+                />
+                <Marker position={[user.address.geo.lat, user.address.geo.lng]}>
+                  <Popup>{user.address.street}</Popup>
+                </Marker>
+              </MapContainer>
+            </div>
           </div>
         </div>
       </section>

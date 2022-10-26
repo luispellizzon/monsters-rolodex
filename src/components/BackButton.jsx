@@ -1,8 +1,10 @@
 import { FaArrowLeft } from "react-icons/fa";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function BackButton({ url }) {
   const navigate = useNavigate();
+
   const onClick = () => {
     navigate("/");
   };
